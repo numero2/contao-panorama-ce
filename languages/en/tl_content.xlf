@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<xliff version="1.1">
+<file datatype="php" original="system/modules/ce_panorama/languages/en/tl_content.php" source-language="en">
+<body>
+    <trans-unit id="tl_content.panorama_legend">
+        <source>Panorama Settings</source>
+    </trans-unit>
+    <trans-unit id="tl_content.panorama_autorotate.0">
+        <source>Auto rotate?</source>
+    </trans-unit>
+    <trans-unit id="tl_content.panorama_autorotate.1">
+        <source>If enabled the image pans automatically.</source>
+    </trans-unit>
+    <trans-unit id="tl_content.panorama_compass.0">
+        <source>Show Compass?</source>
+    </trans-unit>
+    <trans-unit id="tl_content.panorama_compass.1">
+        <source>If enabled a compass is shown in the lower right corner.</source>
+    </trans-unit>
+</body>
+</file>
+</xliff>

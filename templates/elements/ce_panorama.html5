@@ -1,0 +1,68 @@
+<div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if( $this->style ): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+
+  <?php if( $this->headline ): ?>
+    <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
+  <?php endif; ?>
+
+    <div id="panorama_<?= $this->id; ?>" class="panorama-viewer"></div>
+
+    <?php if( count($this->images) > 1 ): ?>
+    <ul data-pano-id="<?= $this->id; ?>" class="panorama-thumbs">
+        <?php foreach( $this->images as $i => $image ): ?>
+        <li data-fullres="<?= $image['path']; ?>" <?=(!$i)?'class=" active"':''; ?>>
+            <figure>
+                {{image::<?= $image['path']; ?>?width=100&height=70&mode=center_center}}
+            </figure>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php endif; ?>
+
+    <script type="text/javascript">
+
+        var pViewer<?= $this->id; ?>;
+        var pOptions<?= $this->id; ?> = {
+            <?php if( $this->autoRotate ): ?>"autoRotate": -5,<?php endif; ?>
+            "compass": <?= ($this->showCompass)?'true':'false'; ?>,
+        };
+
+        pViewer<?= $this->id; ?> = pannellum.viewer('panorama_<?= $this->id; ?>', {
+            "type": "equirectangular",
+            "panorama": "<?= $this->images[0]['path']; ?>",
+            "autoRotate": pOptions<?= $this->id; ?>['autoRotate'],
+            "compass": pOptions<?= $this->id; ?>['compass'],
+            "autoLoad": true
+        });
+
+        document.addEventListener('DOMContentLoaded', function(){
+
+            var elements = document.querySelectorAll('.panorama-thumbs[data-pano-id="<?= $this->id; ?>"] li');
+
+            if( elements ) {
+                for (var i = 0; i < elements.length; i++) {
+                    elements[i].addEventListener('click', function(){
+
+                        var otherElements = this.parentNode.children;
+
+                        for (var j = 0; j < otherElements.length; j++) {
+                            otherElements[j].className = otherElements[j].className.replace(' active', '');
+                        }
+
+                        this.className += ' active';
+
+                        pViewer<?= $this->id; ?>.destroy();
+
+                        pViewer<?= $this->id; ?> = pannellum.viewer('panorama_<?= $this->id; ?>', {
+                            "panorama": this.getAttribute('data-fullres'),
+                            "autoRotate": pOptions<?= $this->id; ?>['autoRotate'],
+                            "compass": pOptions<?= $this->id; ?>['compass'],
+                            "autoLoad": true
+                        });
+                    });
+                }
+            }
+        });
+
+    </script>
+
+</div>
