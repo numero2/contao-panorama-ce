@@ -23,5 +23,4 @@ Installation & Configuration
 
 **Contao 4**
 * Use the Contao Manager or Composer (`composer require numero2/contao-panorama-ce`)
-* Copy contents of this repository into `system/modules/ce_panorama`
 * Run a database update via the Installtool
