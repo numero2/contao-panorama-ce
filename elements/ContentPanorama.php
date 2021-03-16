@@ -57,10 +57,6 @@ class ContentPanorama extends \ContentElement {
         $this->Template->showCompass = $this->panorama_compass;
 
         // add javascripts and stylesheet to head
-        if( !is_array($GLOBALS['TL_JAVASCRIPT']) || array_search('system/modules/ce_panorama/assets/libpannellum.js',$GLOBALS['TL_JAVASCRIPT']) === FALSE ) {
-            $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/ce_panorama/assets/libpannellum.js';
-        }
-
         if( !is_array($GLOBALS['TL_JAVASCRIPT']) || array_search('system/modules/ce_panorama/assets/pannellum.js',$GLOBALS['TL_JAVASCRIPT']) === FALSE ) {
             $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/ce_panorama/assets/pannellum.js';
         }
