@@ -18,4 +18,4 @@ Installation & Configuration
 
 **Contao 4 & 5**
 * Use the Contao Manager or Composer (`composer require numero2/contao-panorama-ce`)
-* Run a database update via the Installtool or via the atabase migrations in Contao Manager
+* Run a database update via the Installtool or via the database migrations in Contao Manager
