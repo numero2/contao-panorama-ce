@@ -1,6 +1,6 @@
 {
     "name": "numero2/contao-panorama-ce",
-    "type": "contao-module",
+    "type": "contao-bundle",
     "license": "LGPL-3.0+",
     "authors": [{
             "name": "numero2 - Agentur für digitales Marketing",
@@ -8,14 +8,22 @@
         }
     ],
     "require": {
-        "contao/core-bundle": "4.*",
-        "contao-community-alliance/composer-plugin": "3.*"
+        "php":"^7.4 || ^8.0",
+        "contao/core-bundle":"^4.13 || ^5.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "numero2\\PanoramaCE\\": "src/"
+        }
     },
     "extra": {
-        "contao": {
-            "sources": {
-                "": "system/modules/ce_panorama"
-            }
+        "contao-manager-plugin": "numero2\\PanoramaCE\\ContaoManager\\Plugin"
+    },
+    "config": {
+        "allow-plugins": {
+            "contao-components/installer": true,
+            "php-http/discovery": true,
+            "contao-community-alliance/composer-plugin": true
         }
     }
 }
