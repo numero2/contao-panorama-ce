@@ -11,7 +11,7 @@
  * @copyright 2020 numero2 - Agentur für digitales Marketing
  */
 
-
+use Contao\Config;
 
 /**
  * Add palettes to tl_content
@@ -26,18 +26,17 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['multiSRCPanorama'] = $GLOBALS['TL_DC
 $GLOBALS['TL_DCA']['tl_content']['fields']['multiSRCPanorama']['eval']['isGallery'] = true;
 $GLOBALS['TL_DCA']['tl_content']['fields']['multiSRCPanorama']['eval']['extensions'] = Config::get('validImageTypes');
 
-$GLOBALS['TL_DCA']['tl_content']['fields']['panorama_autorotate'] = array(
-    'label'         => &$GLOBALS['TL_LANG']['tl_content']['panorama_autorotate']
-,   'exclude'       => true
-,   'inputType'     => 'checkbox'
-,   'eval'          => array('tl_class'=>'w50')
-,   'sql'           => "char(1) NOT NULL default ''"
-);
+$GLOBALS['TL_DCA']['tl_content']['fields']['panorama_autorotate'] = [
+    'exclude'       => true,
+    'inputType'     => 'checkbox',
+    'eval'          => array('tl_class'=>'w50'),
+    'sql'           => "char(1) NOT NULL default ''",
+];
 
-$GLOBALS['TL_DCA']['tl_content']['fields']['panorama_compass'] = array(
-    'label'         => &$GLOBALS['TL_LANG']['tl_content']['panorama_compass']
-,   'exclude'       => true
-,   'inputType'     => 'checkbox'
-,   'eval'          => array('tl_class'=>'w50')
-,   'sql'           => "char(1) NOT NULL default ''"
-);
+$GLOBALS['TL_DCA']['tl_content']['fields']['panorama_compass'] = [
+    'label'         => &$GLOBALS['TL_LANG']['tl_content']['panorama_compass'],
+    'exclude'       => true,
+    'inputType'     => 'checkbox',
+    'eval'          => array('tl_class'=>'w50'),
+    'sql'           => "char(1) NOT NULL default ''"
+];

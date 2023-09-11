@@ -10,17 +10,12 @@ Adds a content element to display panoramic / VR / 360° images using [Pannellum
 System requirements
 --
 
-* [Contao](https://github.com/contao/core) 3.0 or newer
-* [Contao](https://github.com/contao/contao) 4.0 or newer
+* [Contao](https://github.com/contao/contao) 4.13 or newer
 
 
 Installation & Configuration
 --
-**Contao 3**
-* Create a folder called `ce_panorama` within `system/modules/`
-* Copy contents of this repository into `system/modules/ce_panorama`
-* Run a database update via the Installtool
 
-**Contao 4**
+**Contao 4 & 5**
 * Use the Contao Manager or Composer (`composer require numero2/contao-panorama-ce`)
-* Run a database update via the Installtool
+* Run a database update via the Installtool or via the database migrations in Contao Manager
